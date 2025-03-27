@@ -1,17 +1,21 @@
-import { Book } from "lucide-react"
+import CrudDropDown from "./crud-dropdown";
+import Icon from "./icon";
 
-export default function CategoryItem(){
-    return(
-        <div className="flex justify-between mt-2">
-            <div className="flex gap-2">
-                <Book />
-                <span>icone</span>
-                <span>nome da categoria</span>
-            </div>
+interface CategoryItemProps {
+  category: Category;
+}
 
-            <div>
-                <span>...</span>
-            </div>
-        </div>
-    )
+export default function CategoryItem({ category }: CategoryItemProps) {
+  return (
+    <div className="flex justify-between mt-2">
+      <div className="flex gap-2">
+        <Icon name={category.icon} />
+        <span>{category.name}</span>
+      </div>
+
+      <div>
+        <CrudDropDown />
+      </div>
+    </div>
+  );
 }
